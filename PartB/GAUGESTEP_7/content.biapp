@@ -1,0 +1,67 @@
+<bi:biapp bi:version="1600" xmlns:bi="http://xml.sap.com/2011/biml/biapp" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/TR/REC-html40" xmlns:h="http://www.w3.org/TR/REC-html40" xmlns:sdk1="com.sap.sample.scngauge" sdk1:version="15.1">
+	<bi:component name="APPLICATION_PROPERTIES" type="APPLICATION_PROPERTIES">
+		<bi:property name="THEME" value="sap_platinum"/>
+		<bi:property name="ON_STARTUP">
+			<bi:value><![CDATA[var filterList = DS_1.getFilterText("0D_DBREGCOD");
+APPLICATION.alert(filterList);]]></bi:value>
+		</bi:property>
+	</bi:component>
+	<bi:data_source_alias name="DS_1" type="QUERY_DATA_SOURCE">
+		<bi:property name="DATA_SOURCE_DEFINITION">
+			<bi:property name="DATA_SOURCE_CONNECTION" value="local"/>
+			<bi:property name="DATA_SOURCE_TYPE" type="CHOICE" value="INFOPROVIDER"/>
+			<bi:property name="DATA_SOURCE_NAME" value="GAUGESTEP_7\ZPM_0D_DX_M01_Q0001.csv"/>
+			<bi:property name="DATA_SOURCE_INITIAL_STATE">
+				<bi:value><![CDATA[eNrtWPtv2zYQ/lcM/75JLtY2AxQBNHmWiVAkQ1J+YQDhpW5mYHMHxxnQ/fU7WQ9LttK4QdY94CAIxHuRd9934inRkFPrJxymcZQqlgmwQRxxOVJeGzXhDExvs/xtdd1PSJaAdaD9+58WOvUh82zm03Dgb8MwHHx/9/BHH11vMzDzr3OxIIA6rqS3mlDwVhnHZdLbff4dgzAYkUy4I0NH3PmGDUFpS4lxYDmReZYso64fR3RMDKEODLcOi3IsKHPKcxgaSKhi/UbcvGpB2+GJADerzx/X94/b1cOz/sHJkYLaoflcZfmSDCbcZkTwBdkHEjABEZeVjIIuZZRCOgTjCaVgcQ9twIJ0e5OjZexghlFaorYB41YLMvc3MD+2C44Cd4O9j4cLLoH54mTWK4O0xYIybspiEUtBMnSPgoMQK1jExKejpBplbh2j9/N682G9ub/utxxyzjWhoZl1KvUaq58Clj9Hd8zBEEPH896HxxVb7nIkyp9+iUweBnfDvLwFVz8jCnzIBXfzeP8oIApOVecd9D8LULMuL2i0b07zC3076DvmjIH8W9n7z7GSKtyVS5v3yognGeri3fZxhXTt0EQLMMrbTOfntTnvEqMynYctnJ7Wn3NRdEHIDBfCMzWV/sj+6Zu0aA1/fPOOlPHN3P+X9+uZuZNZDieZcVuewKhpTtW6Y1CJ/hOIPy5/fUBky1WJR/G6CZFhjWUUNLztPEUMDae+MME5rY7Vqas6TyvL97kMlUM21HSt5ack3PtLJaGDgEXsEzH+MuKIx6Yzc/xL8IJihYiCEPYpPj/r9xxj4gZXXtoTQY5bCz2qRJbKC4DfAsBDr74efiMDcAHv9cELvghAULwFD/69h/X9RiOyq81uuVt/2lz3h4CvTvAyy6/bfu/P1fZT20AqkxLRb4SpxjBbPfTufllul3e71Xb9sFvftV731Q0SknBw9XahmVm8yeQPoWHTRA/D/X0W1PEYUI672fi7AaJfLSJLcRKUiR9h6srslUeiCFI9JpYvgFU8aEgiyxOJ98MENyGiJkpLiHvjPCA8xqWZKAaXAvUORYexPwwj9Qz7RStELq3ilSdqSCKitZj7jghOlTedrbvnDNMyHoKd4uj2FWHP8qja67R4HQqc5SxJElN0zx7ppqBW33DW0ubrbro3qPlqLH071e9/fDe8GsDQjC8svbD038rSq6kc6zfvbheDC0svLH1NlgbNyePwdeVzInjBU+7yIa1bUY5ySuPMVn3rwYyCrhb4/c14/RV4+I/3X32mw/k=]]></bi:value>
+			</bi:property>
+		</bi:property>
+	</bi:data_source_alias>
+	<bi:component name="ROOT" type="ABSOLUTE_LAYOUT_COMPONENT">
+		<bi:component name="SCNGAUGE_1" type="com_sap_sample_scngauge_SCNGauge">
+			<bi:property name="LEFT_MARGIN" value="0"/>
+			<bi:property name="TOP_MARGIN" value="0"/>
+			<bi:property name="innerRad" value="0"/>
+			<bi:property name="paddingTop" value="10"/>
+			<bi:property name="paddingBottom" value="15"/>
+			<bi:property name="paddingLeft" value="20"/>
+			<bi:property name="paddingRight" value="10"/>
+			<bi:property name="endAngleDeg" value="90"/>
+			<bi:property name="endAngleDegMax" value="90"/>
+			<bi:property name="measureVal" value="10">
+				<bi:binding name="DATA_CELL_2" type="DATA_CELL_BINDING">
+					<bi:property name="DATA_SOURCE_ALIAS_REF" value="DS_1"/>
+					<bi:property name="DATA_SELECTION">
+						<bi:value><![CDATA[{"(MEASURES_DIMENSION)":"00A0185ZPDRZ2UN40RDWGPB0T","0D_DBREGCOD":"80502"}]]></bi:value>
+					</bi:property>
+				</bi:binding>
+			</bi:property>
+			<bi:property name="measureMax" value="100">
+				<bi:binding name="DATA_CELL_1" type="DATA_CELL_BINDING">
+					<bi:property name="DATA_SOURCE_ALIAS_REF" value="DS_1"/>
+					<bi:property name="DATA_SELECTION">
+						<bi:value><![CDATA[{"(MEASURES_DIMENSION)":"00A0185ZPDRZ2UN40RDWGPB0T","0D_DBREGCOD":"(RESULT_MEMBER)"}]]></bi:value>
+					</bi:property>
+				</bi:binding>
+			</bi:property>
+			<bi:property name="colorCode" value="#FF0000"/>
+			<bi:property name="useMeasures" value="X"/>
+			<bi:property name="RIGHT_MARGIN" value="0"/>
+			<bi:property name="BOTTOM_MARGIN" value="0"/>
+			<bi:property name="WIDTH" value="auto"/>
+			<bi:property name="HEIGHT" value="auto"/>
+			<bi:property name="colorArray" type="ORDEREDLIST">
+				<bi:property name="conditionalFormat" index="0">
+					<bi:property name="threshold" value="1000000"/>
+					<bi:property name="colorID" value="#FFFF00"/>
+				</bi:property>
+				<bi:property name="conditionalFormat" index="1">
+					<bi:property name="threshold" value="2000000"/>
+					<bi:property name="colorID" value="#00FF00"/>
+				</bi:property>
+			</bi:property>
+			<bi:property name="startAngleDeg" value="-90"/>
+		</bi:component>
+		<bi:component name="CONTEXT_MENU" type="CONTEXT_MENU_COMPONENT"/>
+		<bi:component name="GLOBAL_SCRIPTS_1" type="GLOBAL_SCRIPTS_COMPONENT"/>
+	</bi:component>
+</bi:biapp>
